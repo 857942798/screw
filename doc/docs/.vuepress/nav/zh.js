@@ -51,6 +51,6 @@ module.exports = [
   },
   {
     text: "Github",
-    link: "https://github.com/857942798?tab=repositories"
+    link: "https://github.com/857942798/screw"
   },
 ];
