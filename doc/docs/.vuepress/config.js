@@ -1,8 +1,6 @@
-const CONFIG = require("./public/config/base.js");
-
 module.exports = {
   dest: "dist",
-  base: `${CONFIG.BASE_PATH}`,
+  base: `/`,
   locales: {
     "/": {
       lang: "zh",
