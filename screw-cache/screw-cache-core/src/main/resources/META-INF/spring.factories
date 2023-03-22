@@ -1,0 +1,3 @@
+org.springframework.boot.autoconfigure.EnableAutoConfiguration=\
+  com.ds.screw.cache.configuration.ScrewCacheBeanRegister,\
+  com.ds.screw.cache.configuration.ScrewCacheBeanInject

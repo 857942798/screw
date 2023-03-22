@@ -1,0 +1,5 @@
+org.springframework.boot.autoconfigure.EnableAutoConfiguration=\
+com.ds.screw.auth.spring.AuthBeanRegister,\
+com.ds.screw.auth.spring.AuthBeanInject,\
+com.ds.screw.auth.spring.sso.AuthSsoBeanRegister,\
+com.ds.screw.auth.spring.sso.AuthSsoBeanInject

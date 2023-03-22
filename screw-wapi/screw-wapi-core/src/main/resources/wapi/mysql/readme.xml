@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<wapi:root xmlns:wapi="http://www.csmf.com/wapi" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+           xsi:schemaLocation="http://www.csmf.com/wapi /wapi/data-resource-config.xsd">
+    <!--必须保留该文件-->
+</wapi:root>

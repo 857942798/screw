@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <parent>
+        <artifactId>screw-demo</artifactId>
+        <groupId>com.ds.screw</groupId>
+        <version>1.0.0-SNAPSHOT</version>
+    </parent>
+    <modelVersion>4.0.0</modelVersion>
+
+    <artifactId>screw-demo-springboot</artifactId>
+
+    <properties>
+        <hutool.version>5.8.3</hutool.version>
+    </properties>
+
+    <dependencies>
+        <!-- 登录认证工具 -->
+        <dependency>
+            <groupId>com.ds.screw</groupId>
+            <artifactId>screw-auth-spring-boot-starter</artifactId>
+            <version>${screw.version}</version>
+        </dependency>
+
+        <!-- 缓存工具,redis实现 -->
+        <dependency>
+            <groupId>com.ds.screw</groupId>
+            <artifactId>screw-cache-redis</artifactId>
+            <version>${screw.version}</version>
+        </dependency>
+        <!-- 缓存工具,caffeine实现 -->
+<!--        <dependency>-->
+<!--            <groupId>com.ds.screw</groupId>-->
+<!--            <artifactId>screw-cache-caffeine</artifactId>-->
+<!--            <version>${screw.version}</version>-->
+<!--        </dependency>-->
+
+        <!-- 消息队列工具实现 -->
+        <dependency>
+            <groupId>com.ds.screw</groupId>
+            <artifactId>screw-queue</artifactId>
+            <version>${screw.version}</version>
+        </dependency>
+
+
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-tomcat</artifactId>
+            <version>2.7.4</version>
+        </dependency>
+
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-devtools</artifactId>
+            <version>2.7.4</version>
+            <scope>runtime</scope>
+            <optional>true</optional>
+        </dependency>
+
+        <dependency>
+            <groupId>javax.servlet</groupId>
+            <artifactId>javax.servlet-api</artifactId>
+            <version>4.0.1</version>
+        </dependency>
+
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-test</artifactId>
+            <version>2.7.4</version>
+            <scope>test</scope>
+            <exclusions>
+                <exclusion>
+                    <groupId>com.vaadin.external.google</groupId>
+                    <artifactId>android-json</artifactId>
+                </exclusion>
+            </exclusions>
+        </dependency>
+
+
+        <!--工具包相关-->
+        <dependency>
+            <groupId>cn.hutool</groupId>
+            <artifactId>hutool-all</artifactId>
+            <version>${hutool.version}</version>
+        </dependency>
+
+    </dependencies>
+
+    <!--打包成jar包，需要增加maven依赖-->
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-maven-plugin</artifactId>
+                <version>2.7.0</version>
+                <configuration><!-- 指定该Main Class为全局的唯一入口 -->
+                    <mainClass>com.ds..screw.demo.ScrewApplication</mainClass>
+                    <classifier>exec</classifier>
+                    <fork>true</fork>
+                    <addResources>true</addResources>
+                </configuration>
+            </plugin>
+        </plugins>
+    </build>
+</project>

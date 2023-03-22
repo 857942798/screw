@@ -1,0 +1,93 @@
+<?xml version="1.0"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
+           targetNamespace="http://www.csmf.com/wapi"
+           xmlns="http://www.csmf.com/wapi"
+           elementFormDefault="qualified">
+
+    <xs:complexType name="unit">
+        <xs:sequence>
+            <xs:element name="params" minOccurs="0" maxOccurs="1">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element name="param" minOccurs="0" maxOccurs="unbounded">
+                            <xs:complexType>
+                                <xs:simpleContent>
+                                    <xs:extension base="xs:string">
+                                        <xs:attribute name="name" type="xs:string"/>
+                                        <xs:attribute name="desc" type="xs:string"/>
+                                    </xs:extension>
+                                </xs:simpleContent>
+                            </xs:complexType>
+                        </xs:element>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+        </xs:sequence>
+        <xs:attribute name="order" type="xs:string" use="required"/>
+        <xs:attribute name="next" use="required">
+            <xs:simpleType>
+                <xs:restriction base="xs:string">
+                    <xs:pattern value="-1|[0-9]+"/>
+                </xs:restriction>
+            </xs:simpleType>
+        </xs:attribute>
+        <xs:attribute name="name" type="xs:string" use="required"/>
+        <xs:attribute name="impl" type="xs:string" use="required"/>
+        <xs:attribute name="desc" type="xs:string"/>
+    </xs:complexType>
+
+    <xs:complexType name="gateway">
+        <xs:complexContent>
+            <xs:extension base="unit">
+                <xs:sequence>
+                    <xs:element name="results" minOccurs="1" maxOccurs="1">
+                        <xs:complexType>
+                            <xs:sequence>
+                                <xs:element name="result" minOccurs="0" maxOccurs="unbounded">
+                                    <xs:complexType>
+                                        <xs:attribute name="when" type="xs:string" use="required"/>
+                                        <xs:attribute name="then" type="xs:string" use="required"/>
+                                    </xs:complexType>
+                                </xs:element>
+                            </xs:sequence>
+                        </xs:complexType>
+                    </xs:element>
+                </xs:sequence>
+            </xs:extension>
+        </xs:complexContent>
+    </xs:complexType>
+
+    <xs:complexType name="flow">
+        <xs:choice maxOccurs="unbounded">
+            <xs:element name="task" type="unit" minOccurs="0" />
+            <xs:element name="async" type="unit" minOccurs="0" />
+            <xs:element name="gateway" type="gateway" minOccurs="0" />
+        </xs:choice>
+        <xs:attribute name="name" type="xs:string"/>
+        <xs:attribute name="license" type="xs:string"/>
+        <xs:attribute name="desc" type="xs:string"/>
+        <xs:attribute name="exception" type="xs:string"/>
+    </xs:complexType>
+
+    <xs:element name="root">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="resource" minOccurs="0" maxOccurs="unbounded">
+                    <xs:complexType>
+                        <xs:all>
+                            <xs:element name="get" minOccurs="0" maxOccurs="1" type="flow"/>
+                            <xs:element name="post" minOccurs="0" maxOccurs="1" type="flow"/>
+                            <xs:element name="put" minOccurs="0" maxOccurs="1" type="flow"/>
+                            <xs:element name="delete" minOccurs="0" maxOccurs="1" type="flow"/>
+                        </xs:all>
+                        <xs:attribute name="key" use="required"/>
+                        <xs:attribute name="name" use="required"/>
+                        <xs:attribute name="desc"/>
+                        <xs:attribute name="protect" default="false" type="xs:boolean"/>
+                        <xs:attribute name="overwrite" default="false" type="xs:boolean"/>
+                    </xs:complexType>
+                </xs:element>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+</xs:schema>

@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <parent>
+        <artifactId>screw</artifactId>
+        <groupId>com.ds.screw</groupId>
+        <version>${revision}</version>
+        <relativePath>../pom.xml</relativePath>
+    </parent>
+    <modelVersion>4.0.0</modelVersion>
+    <description>用于用户登录授权相关功能实现，该模块为独立模块，不依赖其它框架模块</description>
+
+    <artifactId>screw-auth</artifactId>
+    <packaging>pom</packaging>
+    <modules>
+        <module>screw-auth-core</module>
+        <module>screw-auth-starter</module>
+        <module>screw-auth-plugin</module>
+    </modules>
+
+</project>

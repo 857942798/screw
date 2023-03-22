@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <parent>
+        <artifactId>screw</artifactId>
+        <groupId>com.ds.screw</groupId>
+        <version>${revision}</version>
+        <relativePath>../pom.xml</relativePath>
+    </parent>
+    <modelVersion>4.0.0</modelVersion>
+
+    <artifactId>screw-cache</artifactId>
+    <packaging>pom</packaging>
+    <modules>
+        <module>screw-cache-core</module>
+        <module>screw-cache-caffeine</module>
+        <module>screw-cache-redis</module>
+    </modules>
+
+    <properties>
+        <springboot.version>2.7.4</springboot.version>
+        <caffeine.version>2.9.3</caffeine.version>
+        <springframework.version>5.3.23</springframework.version>
+    </properties>
+
+</project>

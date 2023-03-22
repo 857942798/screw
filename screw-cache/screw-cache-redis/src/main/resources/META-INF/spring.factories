@@ -1,0 +1,1 @@
+org.springframework.boot.autoconfigure.EnableAutoConfiguration=com.ds.screw.cache.redis.ScrewRedisConfiguration
