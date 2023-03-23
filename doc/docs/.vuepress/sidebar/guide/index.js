@@ -17,6 +17,10 @@ module.exports = {
         path: "./auth/"
     },
     {
+        title: "消息队列",
+        path: "./message/"
+    },
+    {
         title: "WAPI流程编排工具",
         path: "./wapi/"
     },

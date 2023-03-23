@@ -8,7 +8,7 @@ public class TopicQueueMessage<T> {
     String topic;
     String key;
     T body;
-    long expire = 0;
+    long time = 0;
 
     public TopicQueueMessage() {
     }
@@ -19,11 +19,11 @@ public class TopicQueueMessage<T> {
         this.body = body;
     }
 
-    public TopicQueueMessage(String topic, String key, T body, long expire) {
+    public TopicQueueMessage(String topic, String key, T body, long time) {
         this.topic = topic;
         this.key = key;
         this.body = body;
-        this.expire = expire;
+        this.time = time;
     }
 
     public String getTopic() {
@@ -50,11 +50,11 @@ public class TopicQueueMessage<T> {
         this.body = body;
     }
 
-    public long getExpire() {
-        return expire;
+    public long getTime() {
+        return time;
     }
 
-    public void setExpire(long expire) {
-        this.expire = expire;
+    public void setTime(long time) {
+        this.time = time;
     }
 }

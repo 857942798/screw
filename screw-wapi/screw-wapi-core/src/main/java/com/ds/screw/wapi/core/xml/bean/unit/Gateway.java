@@ -1,6 +1,7 @@
 package com.ds.screw.wapi.core.xml.bean.unit;
 
 import com.ds.screw.wapi.core.xml.adapter.ResultMapAdapter;
+import com.ds.screw.wapi.core.xml.bean.WapiParam;
 import com.ds.screw.wapi.core.xml.bean.WapiResult;
 import com.ds.screw.wapi.core.xml.bean.WapiUnit;
 

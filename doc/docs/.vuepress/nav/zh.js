@@ -11,25 +11,29 @@ module.exports = [
         link: "/guide/token/"
       },
       {
-        text: "权限认证",
-        link: "/guide/auth/"
+        text: "单点登录",
+        link: "/guide/sso/"
       },
       {
-        text: "Wapi流程编排",
-        link: "/guide/wapi/"
+        text: "权限认证",
+        link: "/guide/auth/"
       },
       {
         text: "消息队列",
         link: "/guide/message/"
       },
       {
-        text: "缓存",
-        link: "/guide/cache/"
+        text: "Wapi流程编排",
+        link: "/guide/wapi/"
       },
       {
-        text: "License",
-        link: "/guide/license/"
+        text: "缓存",
+        link: "/guide/cache/"
       }
+      // {
+      //   text: "License",
+      //   link: "/guide/license/"
+      // }
     ]
   },
   {

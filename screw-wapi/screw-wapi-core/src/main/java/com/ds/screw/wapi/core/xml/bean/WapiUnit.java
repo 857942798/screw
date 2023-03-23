@@ -1,5 +1,10 @@
 package com.ds.screw.wapi.core.xml.bean;
 
+import com.ds.screw.wapi.core.xml.adapter.ParamMapAdapter;
+import com.ds.screw.wapi.core.xml.bean.unit.Async;
+import com.ds.screw.wapi.core.xml.bean.unit.Gateway;
+import com.ds.screw.wapi.core.xml.bean.unit.Task;
+
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlAttribute;

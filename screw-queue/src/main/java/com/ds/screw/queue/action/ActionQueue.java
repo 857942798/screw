@@ -115,7 +115,7 @@ class ActionQueue<T> {
         TopicQueueManager.g().registerConsumer(name, 1, new TopicQueueConsumer<T>() {
             @Override
             public void consume(TopicQueueMessage<T> message) {
-                send(new ActionQueueMessage<>(message.getKey(), message.getBody(), message.getExpire()));
+                send(new ActionQueueMessage<>(message.getKey(), message.getBody(), message.getTime()));
             }
         });
     }

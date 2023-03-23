@@ -25,26 +25,31 @@ public class QueueTestController {
     @RequestMapping("/send")
     public String producer() {
         Map<String, Object> params=new HashMap<>();
-        params.put("msg", "消息发送时间："+ DateUtil.now());
-        //此处ma_index_detail表中machine_id+index_id 锁定一行数据，应以此作为分区key，避免多线程更新冲突
+        params.put("msg", "这个一个测试消息");
+        System.out.println("消息发送时间："+ DateUtil.now());
         QueueUtils.sendMessage("testTopic",
                 "testKey",
                 params
         );
+        // 发送一条延迟处理的消息，1分钟后再处理，单位：秒
+        QueueUtils.sendMessage("delayTopic",
+                "delayKey",
+                params, 60L
+        );
         return "success";
     }
 
-    @ActionQueueListener(name = "testTopic", zoneSize = 1, threadSize = 1, pollSize = 50, maxWait = 30000)
+    @ActionQueueListener(name = "testTopic", zoneSize = 1, threadSize = 1, pollSize = 1, maxWait = 3000, isDelay=false)
     public void consumer(List<Map<String,Object>> messages) {
         for (Map<String, Object> message : messages) {
-            System.out.println(message.get("msg"));
+            System.out.println("testTopic消息接收时间："+ DateUtil.now()+"-----"+message.get("msg"));
         }
     }
 
-    @ActionQueueListener(name = "testTopic2", zoneSize = 1, threadSize = 1, pollSize = 50, maxWait = 30000)
+    @ActionQueueListener(name = "delayTopic", zoneSize = 1, threadSize = 1, pollSize = 1, maxWait = 3000, isDelay=true)
     public void consumer2(List<Map<String,Object>> messages) {
         for (Map<String, Object> message : messages) {
-            System.out.println(message.get("msg"));
+            System.out.println("delayTopic消息接收时间："+ DateUtil.now()+"-----"+message.get("msg"));
         }
     }
 

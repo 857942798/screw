@@ -10,7 +10,6 @@ import org.springframework.context.annotation.EnableAspectJAutoProxy;
 @ComponentScan(
         basePackages = "com.ds.screw"
 )
-@EnableAspectJAutoProxy
 public class ScrewApplication {
 
     public static void main(String[] args) {

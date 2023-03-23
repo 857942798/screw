@@ -8,10 +8,9 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 public class AuthCheckController {
 
-    @RequestMapping("/login")
-    public String login() {
-        AuthUtils.login("1");
-        return "登录凭据，token="+AuthUtils.getTokenValue();
+    @RequestMapping("/authCheck")
+    public String authCheck() {
+        return "是否具有权限="+AuthUtils.hasPermission("1","meun.get");
     }
 
 }

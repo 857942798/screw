@@ -20,12 +20,12 @@ public class QueueUtils {
      * @param topic 消息主题
      * @param key 消息的唯一key
      * @param body  消息内容
-     * @param expire  消息过期时间
+     * @param delayTime  消息过期时间
      * @param <T> 返回值
      */
-    public static <T> void sendMessage(String topic,String key, T body, long expire) {
+    public static <T> void sendMessage(String topic,String key, T body, long delayTime) {
         try {
-            producer.send(new TopicQueueMessage<>(topic, key, body, expire));
+            producer.send(new TopicQueueMessage<>(topic, key, body, delayTime));
         } catch (Exception e) {
             e.printStackTrace();
         }

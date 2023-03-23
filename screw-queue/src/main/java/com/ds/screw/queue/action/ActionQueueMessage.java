@@ -12,16 +12,15 @@ class ActionQueueMessage<T> implements Delayed {
 
     String key;
     T body;
-    long expire = 0;
     private long time;
 
     public ActionQueueMessage() {
     }
 
-    public ActionQueueMessage(String key, T body, long expire) {
+    public ActionQueueMessage(String key, T body, long time) {
         this.key = key;
         this.body = body;
-        this.expire = expire;
+        this.time = System.nanoTime()+time*1000000000L;
     }
 
     public String getKey() {
@@ -40,18 +39,9 @@ class ActionQueueMessage<T> implements Delayed {
         this.body = body;
     }
 
-    public long getExpire() {
-        return expire;
-    }
-
-    public void setExpire(long delay) {
-        this.expire = delay;
-        this.time = TimeUnit.NANOSECONDS.convert(delay, TimeUnit.MILLISECONDS) + System.nanoTime();
-    }
-
     @Override
     public long getDelay(TimeUnit unit) {
-        return unit.convert(this.time - System.nanoTime(), TimeUnit.NANOSECONDS);
+        return unit.convert(this.time-System.nanoTime(), TimeUnit.NANOSECONDS);
     }
 
     @Override

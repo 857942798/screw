@@ -4,6 +4,7 @@ import com.ds.screw.auth.AuthManager;
 import com.ds.screw.auth.config.AuthConfig;
 import com.ds.screw.auth.context.AuthRequestContext;
 import com.ds.screw.auth.listener.AuthEventListener;
+import com.ds.screw.auth.provider.AuthCheckProvider;
 import com.ds.screw.auth.publisher.AuthEventPublisher;
 import com.ds.screw.auth.repository.AuthRepository;
 import com.ds.screw.auth.spring.json.AuthJsonTemplateForJackson;
@@ -76,5 +77,15 @@ public class AuthBeanInject {
     @Autowired(required = false)
     public void setAuthJsonTemplateForJackson(AuthJsonTemplateForJackson authJsonTemplateForJackson) {
         AuthManager.setAuthJsonTemplate(authJsonTemplateForJackson);
+    }
+
+    /**
+     * 注入自定义的 权限认证 Bean
+     *
+     * @param authCheckProvider 权限认证 Bean
+     */
+    @Autowired(required = false)
+    public void setAuthCheckProvider(AuthCheckProvider authCheckProvider) {
+        AuthManager.setAuthCheckProvider(authCheckProvider);
     }
 }

@@ -4,7 +4,9 @@ import com.ds.screw.wapi.core.xml.bean.flow.DELETE;
 import com.ds.screw.wapi.core.xml.bean.flow.GET;
 import com.ds.screw.wapi.core.xml.bean.flow.POST;
 import com.ds.screw.wapi.core.xml.bean.flow.PUT;
+import com.ds.screw.wapi.core.xml.bean.unit.Async;
 import com.ds.screw.wapi.core.xml.bean.unit.Gateway;
+import com.ds.screw.wapi.core.xml.bean.unit.Task;
 
 import javax.xml.bind.annotation.*;
 import java.io.Serializable;
